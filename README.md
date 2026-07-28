@@ -56,17 +56,22 @@ bimbam-buy-assistant/
    ```
 6. Se abrirá en tu navegador en `http://localhost:8501`.
 
-## ☁️ Despliegue en Oracle Cloud Infrastructure (OCI)
+## ☁️ Despliegue
 
-Este proyecto se despliega en una **instancia Compute (VM) del Always Free Tier de OCI**,
-donde se instala Python, se clona el repositorio y se ejecuta Streamlit exponiendo el puerto 8501.
-
-> Instrucciones detalladas de despliegue en [`docs/DEPLOY_OCI.md`](docs/DEPLOY_OCI.md) *(agregar este archivo en la etapa de despliegue)*.
+- **Aplicación (interfaz + lógica del asistente):** desplegada en **Streamlit Community Cloud**.
+  👉 URL en vivo: [https://bimbam-buy-assistant-4q8q6ptbhvjno8q4acrhww.streamlit.app/](https://bimbam-buy-assistant-4q8q6ptbhvjno8q4acrhww.streamlit.app/)
+- **Servicio de Oracle Cloud Infrastructure (OCI) utilizado:** **OCI Object Storage**, usado como
+  repositorio de respaldo de los documentos oficiales de políticas (bucket `bimbam-buy-policies`).
 
 ## 🎥 Demo en la nube
 
-<!-- Reemplaza esta línea con tu captura de pantalla o video del agente corriendo en OCI -->
-`[ Aquí va la imagen o video del asistente ejecutándose en OCI ]`
+**Captura del asistente funcionando en Streamlit Community Cloud:**
+
+![Asistente BimBam Buy funcionando en Streamlit Cloud](screenshots/demo-streamlit.png)
+
+**Captura del bucket de OCI Object Storage con los documentos:**
+
+![Bucket de OCI Object Storage con los PDFs de políticas](screenshots/oci-object-storage.png)
 
 ## ⚠️ Nota
 
