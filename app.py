@@ -123,7 +123,21 @@ Respuesta:"""
 
     # 3. Pedirle al modelo que genere la respuesta
     response = llm.invoke(prompt_text)
-    return response.content, relevant_docs
+
+    # El contenido puede venir como texto simple o como una lista de bloques
+    # (algunas versiones de la API de Gemini devuelven bloques con metadatos extra).
+    # Aquí nos quedamos solo con el texto real de la respuesta.
+    raw_content = response.content
+    if isinstance(raw_content, str):
+        answer_text = raw_content
+    else:
+        answer_text = "".join(
+            block.get("text", "")
+            for block in raw_content
+            if isinstance(block, dict) and block.get("type") == "text"
+        )
+
+    return answer_text, relevant_docs
 
 
 # --- Interfaz de usuario ---
